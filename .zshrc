@@ -91,6 +91,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
   # macOS
   eval "$(/opt/homebrew/bin/brew shellenv)"
   BREW_BIN="/opt/homebrew/bin"
+  # Se invoca a ohmyposh
+  eval "$(oh-my-posh init zsh --config ~/dev/oh-my-posh-themes/.mytheme.omp.json)"
 elif [[ "$(uname)" == "Linux" ]]; then
   # WSL o Linux con Homebrew instalado en ruta Linuxbrew
   export PATH=$PATH:/home/pezcadena/.local/bin
@@ -98,9 +100,10 @@ elif [[ "$(uname)" == "Linux" ]]; then
   export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
   # Se pone la dirección en una costante donde se ubican las cosas instaladas por homebrew
   BREW_BIN="/home/linuxbrew/.linuxbrew/bin"
+  # Se invoca a ohmyposh
+  eval "$(oh-my-posh init zsh --config ~/oh-my-posh-themes/.mytheme.omp.json)"
 fi
-# Se invoca a ohmyposh
-eval "$(oh-my-posh init zsh --config ~/dev/oh-my-posh-themes/.mytheme.omp.json)"
+
 
 # Aliases
 alias zshconfig="nvim ~/.zshrc"
