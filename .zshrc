@@ -137,6 +137,17 @@ function start_if_needed() {
 }
 #start_if_needed
 
+# GIT
+function config_add_nvim() {
+  echo "Untracked en .config/nvim:"
+  config ls-files -o --exclude-standard .config/nvim
+  echo "¿Los agrego? (y/N)"
+  read -r yn
+  if [ "$yn" = "y" ]; then
+    config ls-files -z -o --exclude-standard .config/nvim \
+      | xargs -0 -r git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add
+  fi
+}
 
 # Load Angular CLI autocompletion.
 #source <(ng completion script)
