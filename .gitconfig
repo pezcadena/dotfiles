@@ -1,5 +1,5 @@
-[includeIf "shell:uname -r | grep -qi microsoft"]
-    path = ~/.gitconfig.wsl
 [user]
 	email = angellopezcadena@gmail.com
 	name = Angel Pezcadena
+[includeIf "gitdir:/home/**"]
+    path = ~/.gitconfig.wsl
