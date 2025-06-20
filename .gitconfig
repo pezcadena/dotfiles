@@ -1,9 +1,5 @@
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+[includeIf "shell:uname -r | grep -qi microsoft"]
+    path = ~/.gitconfig.wsl
 [user]
 	email = angellopezcadena@gmail.com
 	name = Angel Pezcadena
