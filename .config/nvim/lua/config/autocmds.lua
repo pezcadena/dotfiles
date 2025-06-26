@@ -8,15 +8,23 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 -- autocmd para organizar imports cuando se guarda
-local augroup = vim.api.nvim_create_augroup("ts_organize_imports", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = augroup,
-  pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
-  callback = function()
-    vim.lsp.buf_request_sync(0, "workspace/executeCommand", {
-      command = "_typescript.organizeImports",
-      arguments = { vim.api.nvim_buf_get_name(0) },
-      title = "",
-    }, 500)
-  end,
-})
+-- local augroup = vim.api.nvim_create_augroup("ts_organize_imports", { clear = true })
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   group = augroup,
+--   pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+--   callback = function()
+--     vim.lsp.buf_request_sync(0, "workspace/executeCommand", {
+--       command = "_typescript.organizeImports",
+--       arguments = { vim.api.nvim_buf_get_name(0) },
+--       title = "",
+--     }, 500)
+--   end,
+-- })
+
+-- Disable autoformat for ts files
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = { "typescript" },
+--   callback = function()
+--     vim.b.autoformat = false
+--   end,
+-- })
