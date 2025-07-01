@@ -113,6 +113,7 @@ alias start-docker="sudo systemctl start docker.socket docker.service"
 alias config="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # PLUGGINS
 eval "$($BREW_BIN/brew shellenv)"
+eval "$(zoxide init zsh)"
 # CARAPACE
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
@@ -135,7 +136,7 @@ function start_if_needed() {
         exec $WM_CMD
     fi
 }
-#start_if_needed
+start_if_needed
 
 # GIT
 function config_add_nvim() {
